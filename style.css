@@ -1,0 +1,159 @@
+﻿@charset "utf-8";
+	/******************初期設定**********************/
+/*	* {
+		margin:0;
+		padding:0;
+		box-sizing:border-box;
+	}
+	:root {
+		font-family: "Yu Gothic", YuGothic, Meiryo, sans-serif;
+		font-size:16px;
+		line-height:1;
+		letter-spacing:0.1em;
+		--main01:rgb(180,0,0);
+		--main02:rgb(214,174,60);
+		--base:rgb(220,220,160);
+		--sub01:rgb(90,110,194);
+		--sub02:rgb(100,255,195);
+		--sub03:rgb(183,202,93);
+		--sub04:rgb(255,206,124);
+		--sub05:rgb(255,136,153);
+		--sub06:rgb(205,104,232);
+	}
+	header, main, footer, nav, aside, form {
+		position:relative;
+		overflow:hidden;
+	}
+	h1 {
+		display:none;
+	}
+	h2 {
+		font-size:30px;
+		line-height:1.4;
+	}
+	h3 {
+		font-size:20px;
+		line-height:1.4;
+	}
+	p {
+		margin-top:0.5em;
+		margin-bottom:0.5em;
+		line-height:1.8;
+	}
+	li {
+		list-style:none;
+	}
+a {
+	text-decoration:none;
+	color:rgb(0,0,0);
+}*/
+	/******************grid**********************/
+	body {
+		display:grid;
+		grid-template-columns:1fr 300px 724px 1fr;
+		grid-template-rows: repeat(3,auto);
+		grid-template-areas:
+		"header header header header"
+		"sider aside main sidel"
+		"footer footer footer footer";
+	}
+	body > header {
+		grid-area:header;
+	}
+	body > main {
+		grid-area:main;
+		/*background-color:pink;*/
+	}
+	body > aside {
+		grid-area:aside;
+		/*background-color:skyblue;*/
+	}
+	body > footer {
+		grid-area:footer;
+		/*background-color:yellow;*/
+	}
+	/******************header**********************/
+	#headernav_wrap {
+		overflow:hidden;
+		width: max(1024px, 80vw);
+		margin:0.5em auto;
+		border-bottom:1px solid rgb(150,150,150);
+	}
+	#headerimg_wrap {
+		overflow:hidden;
+		width:1024px;
+		margin:0.5em auto;
+	}
+	/*******toplogo********/
+	#logo {
+		float:left;
+	}
+	/*******パンくず********/
+	#bread_crumb {
+		float:right;
+	}
+	#bread_crumb li {
+		display:inline-block;
+		padding-top:1.5em;
+	}
+	#bread_crumb li:after {
+		content:">";
+	}
+	#bread_crumb a {
+		color:rgb(0,0,0);
+		font-weight:bold;
+	}
+	/******************main**********************/
+	/****各コンテンツ****/
+	body > main > section {
+		padding-left:2em;
+	}
+	/******************aside**********************/
+	/****form****/
+	aside > form {
+		height:300px;
+		width:300px;
+		background-color:var(--base);
+		text-align:center;
+	}
+	aside > form input{
+		width:200px;
+		height:2em;
+		margin:0.5em auto;
+	}
+	aside > form input[type*="text"] {
+		border:3px solid var(--main02);
+	}
+	/****grobalnavi****/
+	aside > ul li {
+		height:80px;
+		display:flex;
+		margin-top:0.3em;
+		margin-bottom:1em;
+		align-items:center;
+		justify-content:center;
+		border:2px solid #ccc;
+	}
+	/******************footer**********************/
+footer {
+	background-color:var(--base);
+	padding:2em calc((100vw - 1024px) / 2);
+	text-align:center;
+	font-size:0.9em;
+}
+footer h2 {
+	display:none;
+}
+footer nav {
+	display:flex;
+	margin-bottom:3em;
+}
+footer ul {
+	list-style:none;
+	text-align:left;
+	line-height:2em;
+	margin-right:100px;
+}
+footer a:hover, footer a:focus {
+	text-decoration:underline;
+}

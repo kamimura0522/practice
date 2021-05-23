@@ -1,0 +1,233 @@
+﻿@charset "utf-8";
+/* common */
+/* ---------------------------------------------------------------------- */
+/* 初期化 */
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+:root {
+	/* ---------- カスタムプロパティ定義 ---------- */
+	/* 色 */
+		--main01:rgb(180,0,0);
+		--main02:rgb(214,174,60);
+		--base:rgb(220,220,160);
+		--sub01:rgb(90,110,194);
+		--sub02:rgb(100,255,195);
+		--sub03:rgb(183,202,93);
+		--sub04:rgb(255,206,124);
+		--sub05:rgb(255,136,153);
+		--sub06:rgb(205,104,232);
+		/* サイズ */
+	--mainWidth:724px;					/* 内容基本幅 */
+	--sideWidth:300px;			        /* 内容基本幅 */
+	/* ----------------------------------- */
+	font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", sans-serif;
+	font-size: 16px;
+	line-height: 1em;
+	letter-spacing: 0.1em;
+}
+header, main, footer, nav, aside {
+	position:relative;
+	overflow:hidden;
+}
+h1, h2, h3, h4 {
+	font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体", sans-serif;
+	letter-spacing: 0.1em;
+	line-height: 1.4em;
+	font-weight: bold;
+}
+h1 {
+	display:none;
+}
+
+h2 {
+	font-size:30px;
+}
+h3 {
+	font-size:20px;
+}
+p {	
+	margin-top:0.5em;
+	margin-bottom:0.5em;
+	font-size:1em;
+	line-height:1.8em;
+	letter-spacing: 0.1em;
+}
+small{
+	font-size:0.8em;
+}
+main {
+	text-align:justify;
+	text-justify:inter-character;
+}
+a {
+	text-decoration:none;
+	color:rgb(0,0,0);
+}
+a:hover, a:focus {
+	text-decoration:underline;
+}
+ul, ol, dl {
+	list-style:none;
+	font-size:1em;
+	line-height:1.3em;
+}
+li, dd {
+	margin-bottom:0.5em;
+}
+input,textarea,button{
+	margin-top:0.5em;
+}
+input{
+	 width: auto; 
+}
+textarea{
+	width:400px;
+}
+
+/* ---------------------------------------------------------------------- */
+
+/**** クラス設定  何か作るとき用****/
+.btn01{
+	border: solid 3px var(--main02);
+	background-color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-size: 14px;
+	border-radius:10px ;
+}
+.btn01:focus,.btn01:hover{
+	cursor: pointer;
+	/* background-color: var(--base); お好みの色へ */
+
+}
+/**** グリッド****/
+
+body {
+	min-height:100vh;
+	display: grid;
+		grid-template-columns:1fr 300px 724px 1fr;
+		grid-template-rows: 300px repeat(2,auto);
+		grid-template-areas:
+		"header header header header"
+		"sider aside main sidel"
+		"footer footer footer footer";
+	}
+	body > header {
+		grid-area:header;
+	}
+	body > main {
+		grid-area:main;
+		margin-top:2em;
+	}
+	body > aside {
+		grid-area:aside;
+		margin-top:2em;
+	}
+	body > footer {
+		grid-area:footer;
+	}
+	/******************header**********************/
+	header >div:first-of-type {
+		overflow:hidden;
+		width: max(1024px, 80vw);
+		margin:0.5em auto;
+		border-bottom:1px solid rgb(150,150,150);
+	}
+	header>div:nth-of-type(2) {
+		overflow:hidden;
+		position:relative;
+		width:1024px;
+		height:246px;
+		margin:0.5em auto;
+		background-image:url(header_dummy.png);
+		background-repeat:no-repeat;
+	}
+
+
+
+	/*******toplogo********/
+	header>div>a>img {
+		float:left;
+	}
+	/*******パンくず********/
+	header>div>ol {
+		float:right;
+	}
+	header>div>ol li {
+		display:inline-block;
+		padding-top:1.5em;
+	}
+	header>div>ol li:not(:last-of-type):after {
+		content:">";
+		margin-left:0.5em;
+	}
+	header>div>ol a {
+		color:rgb(0,0,0);
+		font-weight:bold;
+	}
+	/******************main**********************/
+	/****各コンテンツ****/
+	body > main > section {
+		padding-left:2em;
+	}
+	/******************aside**********************/
+	/****form****/
+	aside > form {
+		height:300px;
+		width:300px;
+		background-color:var(--base);
+		text-align:center;
+		padding-top:80px;
+		margin-bottom:2em;
+	}
+	aside > form input{
+		width:200px;
+		height:2em;
+		margin:0.5em auto;
+	}
+	aside > form input[type*="text"] {
+		border:3px solid var(--main02);
+	}
+	aside > form input[type*="submit"] {
+		width:100px;
+		height:2.5em;
+	}
+	/****grobalnavi****/
+	aside > ul li {
+		height:80px;
+		display:flex;
+		margin-top:0.3em;
+		margin-bottom:1em;
+		align-items:center;
+		justify-content:center;
+		border:2px solid #ccc;
+	}
+	aside > ul li:hover:nth-of-type(1),aside > ul li:focus:nth-of-type(1){
+		/* background-color: red;  色１～７くらいまで追記予定*/
+	}
+	/******************footer**********************/
+footer {
+	height:auto;
+	background-color:var(--base);
+	padding:2em calc((100vw - 1024px) / 2);
+	text-align:center;
+	font-size:0.9em;
+	margin-top:3em;
+}
+footer h2 {
+	display:none;
+}
+footer nav {
+	display:flex;
+	margin-bottom:3em;
+}
+footer ul {
+	text-align:left;
+	line-height:2em;
+	margin-right:100px;
+}

@@ -1,0 +1,213 @@
+:root{
+  --default:1024px;
+  --pic:1;
+}
+main{
+  transition-duration:1s;
+
+}
+main>section:first-of-type>h2{
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* ディスクリプション */
+main>section>p:first-of-type{
+  background-color: var(--main02);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  width:min(580px, calc(580 / 1024 * var(--default))) ;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  line-height: 2em;
+  margin-left: auto;
+  margin-right: auto;
+}
+main>section>p:nth-of-type(2){
+color:var(--main02) ;
+font-size: 16px;
+font-weight: bold;
+text-align: center;
+margin-bottom: 40px;
+}
+/* ラインマーカー */
+main>section>p:nth-of-type(2)>span{
+  /* background:linear-gradient(to top,rgba(48, 172, 103, 0.575), rgba(48, 172, 103, 0.01) 40%); */
+
+}
+main>section>section>div{
+  display: flex;
+}
+
+
+/* スイーツクラス関係 */
+.sweets>h2{
+  margin-bottom: 20px;
+}
+.sweets>section>h3{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 4px;
+  border-bottom:1px solid var(--main02) ;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+h3>span:nth-of-type(even){
+  font-family: "Monotype Corsiva";
+  font-size: calc(80 / 1024 * var(--default));
+  padding-bottom: 12px;
+color:var(--base) ;
+
+}
+.sweets>section p{
+  width: calc(330 / 1024 * var(--default) * var(--pic));
+}
+.sweets>section:not(:first-of-type){
+  margin-top: 60px;
+}
+.sweets> section> div> p{
+  margin-right: 20px;
+}
+.sweets:last-of-type> section> div> p{
+  margin-left: 20px;
+}
+.sweets:first-of-type>h3>span:last-of-type{
+  font-size: 30px;
+}
+main>section>section:nth-of-type(even)>div,section:nth-of-type(even)>h3{
+  flex-direction: row-reverse;
+}
+
+
+/* 画像関係 */
+
+.gallely>div:first-of-type,.gallely>div>img{
+  width: calc(330 / 1024 * var(--default) * var(--pic));
+  height: calc(330 / 1024 * var(--default) * var(--pic));
+  overflow: hidden;
+
+}
+
+.gallely>div:last-of-type>img{
+  width: calc(80 / 1024 * var(--default) * var(--pic));
+  height: calc(80 / 1024 * var(--default) * var(--pic));
+  margin-left: 8px;
+  margin-top: 6px;
+}
+.gallely>div:nth-of-type(2){
+  cursor: pointer;
+}
+
+/* ボタン関係 */
+
+.morebtn{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* 上え戻るボタン */
+.upper> a {
+	display: block;
+    background-color: var(--base);
+    text-align: center;
+    color: #222;
+    font-size: 20px;
+    text-decoration: none;
+    padding:10px 20px;
+	opacity: 0.6;
+	border-radius: 5px;
+	border: 1px solid white;
+}
+.upper {
+    display: none;
+    position: fixed;
+    bottom: 15px;
+    right: 30px;
+}
+.upper> a:hover {
+    background-color: var(--sub01);
+    color: #fff;
+    opacity: 0.4;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+:root{
+  --default:96vw;
+}
+
+  body {
+    min-height:100vh;
+      grid-template-columns:1fr 300px 724px 1fr;
+      grid-template-rows: 300px repeat(2,auto);
+      grid-template-areas:
+      "header header header header"
+      "sider main main sidel"
+      "sider main main sidel"
+      "aside aside aside aside"
+      "footer footer footer footer";
+      width: 96vw;
+    }
+    header,header>div:first-of-type,aside{
+      width: 96vw;
+    }
+    aside>ul{
+      display:flex;
+      flex-wrap: wrap;
+      width: 96vw;
+      justify-content: center;
+    }
+
+    aside>ul>li{
+      width: 33%;
+    }
+    body>main{
+      width: 96vw;
+    }
+    .sweets>section>div{
+      justify-content: center;
+    }
+    footer{
+      width: 96vw;
+    }
+    main>section>p:first-of-type{
+      /* width: auto; */
+    }
+    body > main > section{
+      padding-left: 0.5em;
+    }
+    .sweets>section>h3{
+      width: 80vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+}
+@media screen and (max-width: 768px) {
+  :root{
+    --pic:2.5;
+  }
+  .sweets>section>div{
+    /* display: flex; */
+     flex-direction: column-reverse;
+    /* flex-wrap: wrap;
+    width: 200%; */
+
+  }
+  .sweets>section>div>p,.sweets>section>div>div{
+    /* width: 80vw; */
+    justify-content: center;
+  }
+  main>section>section:nth-of-type(even)>div, section:nth-of-type(even)>h3{
+    flex-direction: column-reverse;
+  }
+  .sweets>section>div{
+    align-items: center;
+  }
+}
